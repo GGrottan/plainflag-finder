@@ -3,6 +3,7 @@ import subprocess
 import os.path
 from genericpath import isfile
 import sys
+import os
 
 # Create arguments and sort them according to requirements
 # Return the arguments passed in order to process them later
@@ -66,7 +67,7 @@ if __name__ == '__main__':
         sys.exit('\n[-] File to search not found!')
 
     if wordlist == None:
-        wordlist = 'plainflag-wordlist.txt'
+        wordlist = str(os.path.join(sys.path[0], 'plainflag-wordlist.txt')) # Get the file from the same dir as the script
 
     if length == None:
         length = 0 # Default is to show everything
